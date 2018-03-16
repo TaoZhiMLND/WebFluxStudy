@@ -20,6 +20,9 @@ public class StudentParallelRepository {
 
   public Mono<Integer> deleteById(Integer id) {
     /*Mono.just(studentMapper.deleteById(id));*/
+
+
+    /** test push */
     return Mono.just(id)
         .flatMap(
             value -> Mono.just(studentMapper.deleteById(id)).subscribeOn(Schedulers.parallel()));
